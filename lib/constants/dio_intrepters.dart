@@ -6,7 +6,7 @@ Dio api() {
     BaseOptions(
         connectTimeout: 5000,
         receiveTimeout: 5000,
-        baseUrl: "ccapi12.herokuapp.com"),
+        baseUrl: "https://ccapi12.herokuapp.com/api/"),
   )..interceptors.add(AppInterceptor());
 }
 

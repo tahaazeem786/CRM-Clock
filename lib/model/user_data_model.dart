@@ -6,10 +6,8 @@ class UserLogin {
   UserLogin({this.user, required this.message, required this.token});
 
   UserLogin.fromJson(Map<String, dynamic> json) {
+    print('reached json');
     user = json['user'] != null ? User.fromJson(json['user']) : null;
-    message = json['message'];
-    token = json['token'];
-    print(token);
   }
 
   Map<String, dynamic> toJson() {
@@ -17,8 +15,6 @@ class UserLogin {
     if (user != null) {
       data['user'] = user?.toJson();
     }
-    data['message'] = message;
-    data['token'] = token;
     return data;
   }
 }
@@ -61,7 +57,6 @@ class User {
     name = json['name'];
     email = json['email'];
     userType = json['user_type'];
-    personalEmail = json['personal_email'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     approved = json['approved'];

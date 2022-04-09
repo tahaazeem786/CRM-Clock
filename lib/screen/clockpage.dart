@@ -69,7 +69,7 @@ class _ClockScreenState extends State<ClockScreen> {
                 border: Border(right: BorderSide(color: Colors.white)),
                 color: Colors.black,
               ),
-              child: Image.asset('assets/secondScreenLogo.png'),
+              child: Text("LABEL"),
             ),
             ListTile(
               title: const Text('Clock In'),

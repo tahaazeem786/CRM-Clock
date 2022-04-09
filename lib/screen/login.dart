@@ -92,11 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 130),
-                child: Image.asset(
-                  'assets/MVp.png',
-                  width: 200,
-                  height: 200,
-                ),
+                child: Text(''),
               ),
               Padding(
                 padding:
@@ -169,6 +165,9 @@ class _LoginScreenState extends State<LoginScreen> {
   bool buttonLoading = false;
 
   Future<void> buttonPressed() async {
+    print('email: ' + emailController.text);
+    print('password: ' + pwdController.text);
+    String pwd = pwdController.text;
     setState(() {
       buttonLoading = true;
     });
@@ -176,9 +175,9 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
     try {
-      data = (await AuthData().login(emailController.text, pwdController.text));
+      print(await AuthData().login(emailController.text, pwdController.text));
+      data = (await AuthData().login(emailController.text, pwd));
       if (data!.user != null) {
-        AppInterceptor.token = data!.token.toString();
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -189,6 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
         print('failed');
       }
     } catch (e) {
+      print(e);
       setState(() {
         falseUserOrPass = true;
         errorText = e.toString();
