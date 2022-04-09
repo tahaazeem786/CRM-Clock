@@ -31,7 +31,7 @@ class _SplashState extends State<Splash> {
       backgroundColor: Colors.white,
       body: Center(
         child: Container(
-          child: Text('Loading...'),
+          child: Center(child: CircularProgressIndicator()),
           width: 400,
           height: 600,
         ),
